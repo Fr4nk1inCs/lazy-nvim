@@ -21,6 +21,21 @@ return {
         end,
     },
     {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+        },
+        config = function()
+            require("mason-null-ls").setup({
+                automatic_installation = true,
+                automatic_setup = true,
+            })
+            require("mason-null-ls").setup_handlers({})
+        end,
+    },
+    {
         "neovim/nvim-lspconfig",
         opts = {
             autoformat = true,

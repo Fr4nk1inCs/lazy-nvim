@@ -1,10 +1,6 @@
 return {
     {
-        "nvim-lualine/lualine.nvim",
-        enabled = false,
-    },
-    {
-        "SmiteshP/nvim-navic",
+        "folke/tokyonight.nvim",
         enabled = false,
     },
     {
