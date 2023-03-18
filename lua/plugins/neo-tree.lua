@@ -3,7 +3,7 @@ return {
     opts = {
         filesystem = {
             filtered_items = {
-                hide_gitignored = true,
+                hide_gitignored = false,
                 hide_dotfiles = false,
                 bind_to_cwd = false,
                 follow_current_file = true,
