@@ -31,8 +31,8 @@ return {
             require("mason-null-ls").setup({
                 automatic_installation = true,
                 automatic_setup = true,
+                handlers = nil,
             })
-            require("mason-null-ls").setup_handlers({})
         end,
     },
     {
