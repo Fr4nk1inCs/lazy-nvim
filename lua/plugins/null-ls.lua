@@ -15,7 +15,6 @@ return {
                     nls.builtins.formatting.autopep8,
                     nls.builtins.formatting.clang_format,
                     nls.builtins.formatting.rustfmt,
-                    nls.builtins.diagnostics.flake8,
                 },
             }
         end,

@@ -9,6 +9,7 @@ return {
                             build = {
                                 executable = "xelatex",
                                 args = {
+                                    "-shell-escape",
                                     "-synctex=1",
                                     "-interaction=nonstopmode",
                                     "%f",

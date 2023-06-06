@@ -1,6 +1,7 @@
 return {
     {
         "mfussenegger/nvim-dap",
+        config = function(_, _) end,
         keys = {
             {
                 "<space>dp",

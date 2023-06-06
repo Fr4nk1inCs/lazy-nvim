@@ -5,9 +5,12 @@ return {
             filtered_items = {
                 hide_gitignored = false,
                 hide_dotfiles = false,
-                bind_to_cwd = false,
-                follow_current_file = true,
+                bind_to_cwd = true,
             },
+            follow_current_file = false,
+        },
+        buffers = {
+            follow_current_file = false,
         },
     },
 }
