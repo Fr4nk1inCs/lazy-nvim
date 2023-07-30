@@ -14,7 +14,8 @@ return {
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.autopep8,
                     nls.builtins.formatting.clang_format,
-                    nls.builtins.formatting.rustfmt,
+                    nls.builtins.formatting.rustfmt.with({ extra_args = { "--edition=2021" } }),
+                    nls.builtins.formatting.eslint,
                 },
             }
         end,
@@ -38,6 +39,7 @@ return {
         "neovim/nvim-lspconfig",
         opts = {
             autoformat = true,
+            format = { timeout_ms = 3000 },
         },
     },
 }
