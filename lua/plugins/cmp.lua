@@ -47,6 +47,7 @@ return {
                     ["<S-Tab>"] = cmp.mapping(select_prev, { "i", "s" }),
                 }),
                 sources = {
+                    { name = "copilot" },
                     { name = "path" },
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
