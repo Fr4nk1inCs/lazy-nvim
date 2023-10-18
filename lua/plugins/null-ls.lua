@@ -12,7 +12,6 @@ return {
                     nls.builtins.diagnostics.fish,
                     nls.builtins.formatting.stylua,
                     nls.builtins.formatting.shfmt,
-                    nls.builtins.formatting.autopep8,
                     nls.builtins.formatting.clang_format,
                     nls.builtins.formatting.rustfmt.with({ extra_args = { "--edition=2021" } }),
                     nls.builtins.formatting.eslint,
@@ -27,18 +26,21 @@ return {
             "williamboman/mason.nvim",
             "nvimtools/none-ls.nvim",
         },
-        config = function()
-            require("mason-null-ls").setup({
-                automatic_installation = true,
-                automatic_setup = true,
-                handlers = nil,
-            })
-        end,
+        opts = {
+            ensure_installed = {
+                "stylua",
+                "fish_indent",
+                "shfmt",
+                "eslint",
+            },
+            automatic_installation = true,
+            automatic_setup = true,
+            handlers = nil,
+        },
     },
     {
         "neovim/nvim-lspconfig",
         opts = {
-            autoformat = true,
             format = { timeout_ms = 3000 },
         },
     },
