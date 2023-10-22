@@ -22,6 +22,23 @@ opt.fileencodings = { "ucs-bom", "utf-8", "GB18030", "gbk" }
 opt.laststatus = 3
 opt.pumblend = 0
 
+if vim.fn.has("wsl") == 1 then
+    vim.g.clipboard = {
+        name = "WslClipboard",
+        copy = {
+            ["+"] = "/mnt/c/Windows/System32/clip.exe",
+            ["*"] = "/mnt/c/Windows/System32/clip.exe",
+        },
+        paste = {
+            ["+"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ["*"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+    }
+end
+
 vim.diagnostic.config({
     float = { border = "rounded" },
 })
+
+vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
