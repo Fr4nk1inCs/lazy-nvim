@@ -1,3 +1,7 @@
+if vim.g.vscode then
+    return {}
+end
+
 return {
     {
         "CRAG666/code_runner.nvim",
