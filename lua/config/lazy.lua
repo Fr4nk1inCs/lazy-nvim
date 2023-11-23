@@ -43,6 +43,9 @@ require("lazy").setup({
 
         { import = "lazyvim.plugins.extras.editor.symbols-outline" },
 
+        -- vscode
+        { import = "lazyvim.plugins.extras.vscode" },
+
         -- import/override with your plugins
         { import = "plugins" },
     },
