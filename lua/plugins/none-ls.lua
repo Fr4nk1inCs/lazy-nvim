@@ -11,6 +11,8 @@ return {
                     nls.builtins.formatting.fish_indent,
                     nls.builtins.diagnostics.fish,
                     nls.builtins.formatting.stylua,
+                    nls.builtins.formatting.black,
+                    nls.builtins.formatting.isort,
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.clang_format,
                     nls.builtins.formatting.rustfmt.with({ extra_args = { "--edition=2021" } }),
