@@ -9,7 +9,7 @@ return {
             servers = {
                 typst_lsp = {
                     root_dir = require("lspconfig.util").root_pattern("*.typ"),
-                    exportPdf = "never",
+                    exportPdf = "onType",
                 },
             },
         },
@@ -18,5 +18,18 @@ return {
         "kaarmu/typst.vim",
         ft = "typst",
         lazy = false,
+    },
+    {
+        "chomosuke/typst-preview.nvim",
+        ft = "typst",
+        version = "0.1.*",
+        build = function()
+            require("typst-preview").update()
+        end,
+        opts = {
+            get_root = function(bufnr_of_typst_buffer)
+                return vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
+            end,
+        },
     },
 }
