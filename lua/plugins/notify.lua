@@ -2,9 +2,15 @@ if vim.g.vscode then
     return {}
 end
 
-return { {
-    "rcarriga/nvim-notify",
-    opts = {
-        background_colour = "#000000",
+if vim.g.neovide then
+    OPTS = {}
+else
+    OPTS = { background_colour = "#000000" }
+end
+
+return {
+    {
+        "rcarriga/nvim-notify",
+        opts = OPTS,
     },
-} }
+}

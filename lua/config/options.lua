@@ -41,4 +41,23 @@ vim.diagnostic.config({
     float = { border = "rounded" },
 })
 
-vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
+vim.api.nvim_set_hl(0, "TreesitterContextBottom", { bg = "#2e3440", underline = true })
+
+-- Neovide configurations
+if vim.g.neovide then
+    vim.o.guifont = "Maple Mono SC NF:h12"
+    vim.g.neovide_transparency = 0.9
+    -- Wait for neovide to support this
+    -- local alpha = function(rgb, transparency)
+    --     return rgb .. string.format("%02x", transparency * 255)
+    -- end
+    -- vim.g.transparency = 0.8
+    -- vim.g.neovide_background_color = alpha("#2e3440", 0.8)
+    vim.g.neovide_floating_blur_amount_x = 5.0
+    vim.g.neovide_floating_blur_amount_y = 5.0
+    vim.g.neovide_floating_shadow = true
+    vim.g.neovide_floating_z_height = 10
+    vim.g.neovide_light_angle_degrees = 45
+    vim.g.neovide_light_radius = 5
+    vim.g.neovide_scroll_animation_length = 0.3
+end

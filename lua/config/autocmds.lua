@@ -20,3 +20,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         end
     end,
 })
+
+if vim.g.neovide then
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "lazyterm",
+        callback = function()
+            vim.api.nvim_win_set_option(0, "winblend", 70)
+        end,
+    })
+end

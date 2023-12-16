@@ -2,6 +2,12 @@ if vim.g.vscode then
     return {}
 end
 
+if vim.g.neovide then
+    WIN_BLEND = 70
+else
+    WIN_BLEND = 0
+end
+
 return {
     {
         "folke/noice.nvim",
@@ -16,7 +22,7 @@ return {
                     opts = {
                         relative = "cursor",
                         size = {
-                            width = 80,
+                            width = 60,
                         },
                     },
                 },
@@ -28,12 +34,22 @@ return {
             views = {
                 popup = {
                     win_options = {
-                        winblend = 0,
+                        winblend = WIN_BLEND,
+                    },
+                },
+                notify = {
+                    win_options = {
+                        winblend = WIN_BLEND,
+                    },
+                },
+                cmdline_popup = {
+                    win_options = {
+                        winblend = WIN_BLEND,
                     },
                 },
                 mini = {
                     win_options = {
-                        winblend = 0,
+                        winblend = WIN_BLEND,
                     },
                 },
             },
