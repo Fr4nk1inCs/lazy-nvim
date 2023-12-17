@@ -47,6 +47,11 @@ return {
                         winblend = WIN_BLEND,
                     },
                 },
+                popupmenu = {
+                    win_options = {
+                        winblend = WIN_BLEND,
+                    },
+                },
                 mini = {
                     win_options = {
                         winblend = WIN_BLEND,
