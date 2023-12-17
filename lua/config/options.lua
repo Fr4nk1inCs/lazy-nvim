@@ -41,7 +41,7 @@ vim.diagnostic.config({
     float = { border = "rounded" },
 })
 
-vim.api.nvim_set_hl(0, "TreesitterContextBottom", { bg = "#2e3440", underline = true })
+vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
 
 -- Neovide configurations
 if vim.g.neovide then
@@ -60,4 +60,7 @@ if vim.g.neovide then
     vim.g.neovide_light_angle_degrees = 45
     vim.g.neovide_light_radius = 5
     vim.g.neovide_scroll_animation_length = 0.3
+
+    vim.api.nvim_set_hl(0, "TreesitterContextBottom", { bg = "#2e3440", underline = true })
+    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#2e3440" })
 end
