@@ -5,7 +5,10 @@ end
 return {
     {
         "goolord/alpha-nvim",
-        dependencies = "nvim-lua/plenary.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "ahmedkhalf/project.nvim",
+        },
         init = function()
             local theta = require("alpha.themes.theta")
             local dashboard = require("alpha.themes.dashboard")
@@ -126,6 +129,43 @@ return {
                 }
             end
 
+            --- @param items_number number? optional number of items to generate, default = 10
+            local function get_recent_projects(items_number)
+                local count = if_nil(items_number, 10)
+                local target_width = 35
+
+                local project_nvim = require("project_nvim")
+                local recent_projects = project_nvim.get_recent_projects()
+
+                local function open_project_cmd(dir)
+                    return ":cd " .. dir .. " <CR>:Telescope find_files<CR>"
+                end
+
+                local projects = {}
+                for _, v in pairs(recent_projects) do
+                    if #projects == count then
+                        break
+                    end
+                    -- shorten path by replacing $HOME to ~
+                    local short_fn = vim.fn.fnamemodify(v, ":~")
+                    if #short_fn > target_width then
+                        short_fn = plenary_path.new(short_fn):shorten(1, { -2, -1 })
+                        if #short_fn > target_width then
+                            short_fn = plenary_path.new(short_fn):shorten(1, { -1 })
+                        end
+                    end
+                    short_fn = "  " .. short_fn
+                    local shortcut = string.char(string.byte("A") + #projects)
+                    local button = dashboard.button(shortcut, short_fn, open_project_cmd(v))
+                    projects[#projects + 1] = button
+                end
+                return {
+                    type = "group",
+                    val = projects,
+                    opts = {},
+                }
+            end
+
             ------ My Own Config ------
 
             local function padding(val)
@@ -174,7 +214,7 @@ return {
                 },
             }
 
-            local recent_file = {
+            local recent = {
                 type = "group",
                 val = {
                     {
@@ -189,11 +229,28 @@ return {
                     {
                         type = "group",
                         val = function()
-                            return { mru(0, cdir) }
+                            return { mru(0, cdir, 3) }
                         end,
                         opts = { shrink_margin = false },
                     },
-                    dashboard.button("m", "󰝒  More Recent Files", "<cmd>Telescope oldfiles<CR>"),
+                    dashboard.button("r", "󰝒  More Recent Files", "<cmd>Telescope oldfiles<CR>"),
+                    {
+                        type = "text",
+                        val = "├────────────────── Recent projects ─────────────────┤",
+                        opts = {
+                            hl = "SpecialComment",
+                            shrink_margin = false,
+                            position = "center",
+                        },
+                    },
+                    {
+                        type = "group",
+                        val = function()
+                            return { get_recent_projects(5) }
+                        end,
+                        opts = { shrink_margin = false },
+                    },
+                    dashboard.button("p", "  More Recent Projects", ":Telescope projects <CR>"),
                 },
                 position = "center",
             }
@@ -209,13 +266,10 @@ return {
                             position = "center",
                         },
                     },
-                    dashboard.button("f", "󰈞  Find File", "<cmd>Telescope find_files<CR>"),
                     dashboard.button("n", "󰈔  New File", "<cmd>ene<CR>"),
-                    dashboard.button("e", "󰙅  File Explorer", "<cmd>Neotree toggle<CR>"),
-                    dashboard.button("g", "󱎸  Live Grep", "<cmd>Telescope live_grep<CR>"),
                     dashboard.button("c", "󰒓  Configuration", "<cmd>e $MYVIMRC <CR>"),
                     dashboard.button("s", "󰑐  Restore Session", [[:lua require("persistence").load() <cr>]]),
-                    dashboard.button("u", "󰒲  Lazy", "<cmd>Lazy<CR>"),
+                    dashboard.button("l", "󰒲  Lazy", "<cmd>Lazy<CR>"),
                     dashboard.button("q", "󰅚  Quit", "<cmd>qa<CR>"),
                 },
                 position = "center",
@@ -238,7 +292,7 @@ return {
                 padding(1),
                 current_dir,
                 padding(1),
-                recent_file,
+                recent,
                 buttons,
                 footer,
             }

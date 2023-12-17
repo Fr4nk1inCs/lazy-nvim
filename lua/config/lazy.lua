@@ -37,6 +37,7 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.ui.alpha" },
 
         { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+        { import = "lazyvim.plugins.extras.util.project" },
 
         -- Github Copilot
         { import = "lazyvim.plugins.extras.coding.copilot" },
