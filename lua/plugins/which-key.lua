@@ -6,7 +6,7 @@ if vim.g.neovide then
     OPTS = {
         window = {
             border = "rounded",
-            winblend = 70,
+            winblend = 100,
         },
     }
 else

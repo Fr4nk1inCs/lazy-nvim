@@ -5,7 +5,7 @@ end
 if vim.g.neovide then
     OPTS = {
         defaults = {
-            winblend = 70,
+            winblend = 100,
         },
     }
 else

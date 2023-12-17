@@ -3,7 +3,7 @@ if vim.g.vscode then
 end
 
 if vim.g.neovide then
-    WIN_BLEND = 70
+    WIN_BLEND = 100
 else
     WIN_BLEND = 0
 end
