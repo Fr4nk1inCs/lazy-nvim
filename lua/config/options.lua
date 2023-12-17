@@ -56,8 +56,8 @@ if vim.g.neovide then
 
     -- Blur for floating windows
     vim.o.pumblend = 100
-    vim.g.neovide_floating_blur_amount_x = 5.0
-    vim.g.neovide_floating_blur_amount_y = 5.0
+    vim.g.neovide_floating_blur_amount_x = 7.0
+    vim.g.neovide_floating_blur_amount_y = 7.0
     vim.g.neovide_floating_shadow = true
     vim.g.neovide_floating_z_height = 10
     vim.g.neovide_light_angle_degrees = 45
