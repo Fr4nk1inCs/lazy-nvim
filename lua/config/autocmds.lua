@@ -23,9 +23,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 if vim.g.neovide then
     vim.api.nvim_create_autocmd("FileType", {
-        pattern = "lazyterm",
-        callback = function()
-            vim.api.nvim_win_set_option(0, "winblend", 70)
+        pattern = { "lazyterm", "lazy", "mason" },
+        callback = function(opts)
+            vim.api.nvim_set_option_value("winblend", 70, { win = opts.winnr })
         end,
     })
 end
