@@ -19,13 +19,11 @@ else
 end
 
 return {
-    -- NightFox Colorscheme
     {
         "EdenEast/nightfox.nvim",
         opts = OPTS,
     },
 
-    -- Configure LazyVim to load gruvbox
     {
         "LazyVim/LazyVim",
         opts = {

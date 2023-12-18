@@ -17,7 +17,7 @@ return {
     {
         "kaarmu/typst.vim",
         ft = "typst",
-        lazy = false,
+        lazy = true,
     },
     {
         "chomosuke/typst-preview.nvim",
