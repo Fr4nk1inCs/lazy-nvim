@@ -55,7 +55,7 @@ if vim.g.neovide then
     -- vim.g.neovide_background_color = alpha("#2e3440", 0.8)
 
     -- Blur for floating windows
-    vim.o.pumblend = 100
+    vim.o.pumblend = 70
     vim.g.neovide_floating_blur_amount_x = 7.0
     vim.g.neovide_floating_blur_amount_y = 7.0
     vim.g.neovide_floating_shadow = true

@@ -25,7 +25,7 @@ if vim.g.neovide then
     vim.api.nvim_create_autocmd("FileType", {
         pattern = { "lazyterm", "lazy", "mason" },
         callback = function(opts)
-            vim.api.nvim_set_option_value("winblend", 100, { win = opts.winnr })
+            vim.api.nvim_set_option_value("winblend", 70, { win = opts.winnr })
         end,
     })
 end

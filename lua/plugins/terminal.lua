@@ -11,7 +11,7 @@ if vim.g.neovide then
         height = function(_)
             return math.floor(vim.o.lines * 0.8)
         end,
-        winblend = 100,
+        winblend = 70,
     }
 else
     FLOAT_OPTS = {
