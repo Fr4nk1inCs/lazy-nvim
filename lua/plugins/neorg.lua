@@ -11,6 +11,11 @@ return {
         opts = {
             load = {
                 ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.keybinds"] = {
+                    config = {
+                        default_keybinds = true,
+                    },
+                },
                 ["core.concealer"] = {}, -- Adds pretty icons to your documents
                 ["core.completion"] = {
                     config = {
