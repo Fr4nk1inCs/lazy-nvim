@@ -12,14 +12,11 @@ return {
             return {
                 root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
                 sources = {
-                    nls.builtins.formatting.fish_indent,
-                    nls.builtins.diagnostics.fish,
                     nls.builtins.formatting.stylua,
                     nls.builtins.formatting.black,
                     nls.builtins.formatting.isort,
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.clang_format,
-                    nls.builtins.formatting.rustfmt.with({ extra_args = { "--edition=2021" } }),
                     nls.builtins.formatting.eslint,
                 },
             }
@@ -35,7 +32,6 @@ return {
         opts = {
             ensure_installed = {
                 "stylua",
-                "fish_indent",
                 "shfmt",
                 "eslint",
             },

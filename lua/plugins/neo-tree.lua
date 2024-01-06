@@ -36,7 +36,7 @@ return {
                 },
                 {
                     source = "document_symbols",
-                    display_name = "  Symbols",
+                    display_name = " Symbols",
                 },
             },
             highlight_tab = "BufferLineBuffer",
@@ -46,6 +46,9 @@ return {
             highlight_separator_active = "BufferLineSeparatorSelected",
         },
         filesystem = {
+            filtered_items = {
+                hide_dotfiles = false,
+            },
             group_empty_dirs = true,
             follow_current_file = {
                 enabled = true,
