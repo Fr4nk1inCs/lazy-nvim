@@ -8,8 +8,8 @@ local trigger_events = {}
 local workspaces = {}
 for name, path in pairs(vaults) do
     table.insert(workspaces, { name = name, path = path })
-    table.insert(trigger_events, "BufReadPre " .. path .. "/**.md")
-    table.insert(trigger_events, "BufNewFile " .. path .. "/**.md")
+    table.insert(trigger_events, "BufReadPre " .. vim.fn.expand(path) .. "/**.md")
+    table.insert(trigger_events, "BufNewFile " .. vim.fn.expand(path) .. "/**.md")
 end
 
 -- create user command to open vaults
