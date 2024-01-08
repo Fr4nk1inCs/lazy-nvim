@@ -3,14 +3,17 @@
 -- Add any additional keymaps here
 
 -- Disable arrow keys
-local function notify()
+local function notify_use_hjkl()
     return vim.notify("Arrow keys are disabled, use hjkl instead", vim.log.levels.WARN)
 end
 local arrow_keys = { "<up>", "<down>", "<left>", "<right>" }
 local modes_disabling_arrow_keys = { "n", "i", "v", "t", "c" }
 for _, mode in ipairs(modes_disabling_arrow_keys) do
     for _, key in ipairs(arrow_keys) do
-        vim.keymap.set(mode, key, notify, { silent = true })
+        vim.keymap.set(mode, key, notify_use_hjkl, {
+            silent = true,
+            desc = "Disabled, use hjkl instead",
+        })
     end
 end
 

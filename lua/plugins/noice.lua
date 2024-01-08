@@ -1,7 +1,3 @@
-if vim.g.vscode then
-    return {}
-end
-
 if vim.g.neovide then
     WIN_BLEND = 70
 else

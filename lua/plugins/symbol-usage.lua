@@ -1,7 +1,3 @@
-if vim.g.vscode then
-    return {}
-end
-
 local event
 if vim.fn.has("nvim-0.10") == 1 then
     event = "LspAttach"

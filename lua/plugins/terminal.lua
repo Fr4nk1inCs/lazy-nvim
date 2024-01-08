@@ -1,7 +1,3 @@
-if vim.g.vscode then
-    return {}
-end
-
 if vim.g.neovide then
     FLOAT_OPTS = {
         border = "curved",

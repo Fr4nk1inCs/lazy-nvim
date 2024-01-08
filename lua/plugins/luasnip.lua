@@ -1,7 +1,3 @@
-if vim.g.vscode then
-    return {}
-end
-
 return {
     {
         "L3MON4D3/LuaSnip",

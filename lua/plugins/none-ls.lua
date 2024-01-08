@@ -1,7 +1,3 @@
-if vim.g.vscode then
-    return {}
-end
-
 return {
     {
         "nvimtools/none-ls.nvim",
