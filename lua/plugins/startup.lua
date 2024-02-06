@@ -1,6 +1,7 @@
 return {
     {
         "goolord/alpha-nvim",
+        enabled = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "ahmedkhalf/project.nvim",
@@ -295,5 +296,58 @@ return {
 
             require("alpha").setup(config)
         end,
+    },
+    {
+        "nvimdev/dashboard-nvim",
+        event = "VimEnter",
+        opts = function()
+            return {
+                theme = "hyper",
+                config = {
+                    header = {
+                        "███████╗██████╗ ██╗  ██╗███╗   ██╗██╗  ██╗ ██╗██╗███╗   ██╗",
+                        "██╔════╝██╔══██╗██║  ██║████╗  ██║██║ ██╔╝███║██║████╗  ██║",
+                        "█████╗  ██████╔╝███████║██╔██╗ ██║█████╔╝ ╚██║██║██╔██╗ ██║",
+                        "██╔══╝  ██╔══██╗╚════██║██║╚██╗██║██╔═██╗  ██║██║██║╚██╗██║",
+                        "██║     ██║  ██║     ██║██║ ╚████║██║  ██╗ ██║██║██║ ╚████║",
+                        "╚═╝     ╚═╝  ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═╝╚═╝╚═╝  ╚═══╝",
+                        "",
+                    },
+                    shortcut = {
+                        {
+                            desc = "󰒲 Lazy",
+                            key = "l",
+                            action = "Lazy",
+                        },
+                        {
+                            desc = "󰒓 Config",
+                            key = "c",
+                            action = "edit $MYVIMRC",
+                        },
+                        {
+                            desc = "󰅚 Quit",
+                            key = "q",
+                            action = "qa",
+                        },
+                    },
+                    project = {
+                        action = function(path)
+                            vim.fn.chdir(path)
+                            vim.cmd("SessionManager load_current_dir_session")
+                        end,
+                    },
+                    footer = {},
+                },
+            }
+        end,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            {
+                "Shatur/neovim-session-manager",
+                opts = {
+                    autoload_mode = "Disabled",
+                },
+            },
+        },
     },
 }

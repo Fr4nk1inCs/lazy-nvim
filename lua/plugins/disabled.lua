@@ -7,4 +7,8 @@ return {
         "friendly-snippets",
         enabled = false,
     },
+    {
+        "folke/persistence.nvim",
+        enabled = false,
+    },
 }
