@@ -19,7 +19,6 @@ return {
         "EdenEast/nightfox.nvim",
         opts = OPTS,
     },
-
     {
         "LazyVim/LazyVim",
         opts = {

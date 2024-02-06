@@ -2,25 +2,23 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-local opt = vim.opt
+vim.opt.smarttab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
 
-opt.smarttab = true
-opt.shiftwidth = 4
-opt.tabstop = 4
-opt.expandtab = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-opt.hlsearch = true
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
+vim.opt.colorcolumn = { "80", "120" }
+vim.opt.whichwrap = "<,>,h,l,[,]"
 
-opt.colorcolumn = { "80", "120" }
-opt.whichwrap = "<,>,h,l,[,]"
+vim.opt.fileencodings = { "ucs-bom", "utf-8", "GB18030", "gbk" }
 
-opt.fileencodings = { "ucs-bom", "utf-8", "GB18030", "gbk" }
-
-opt.laststatus = 3
-opt.pumblend = 0
+vim.opt.laststatus = 3
+vim.opt.pumblend = 0
 
 if vim.fn.has("wsl") == 1 then
     vim.g.clipboard = {

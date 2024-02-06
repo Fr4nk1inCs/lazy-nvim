@@ -300,50 +300,50 @@ return {
     {
         "nvimdev/dashboard-nvim",
         event = "VimEnter",
-        opts = function()
-            return {
-                theme = "hyper",
-                config = {
-                    header = {
-                        "███████╗██████╗ ██╗  ██╗███╗   ██╗██╗  ██╗ ██╗██╗███╗   ██╗",
-                        "██╔════╝██╔══██╗██║  ██║████╗  ██║██║ ██╔╝███║██║████╗  ██║",
-                        "█████╗  ██████╔╝███████║██╔██╗ ██║█████╔╝ ╚██║██║██╔██╗ ██║",
-                        "██╔══╝  ██╔══██╗╚════██║██║╚██╗██║██╔═██╗  ██║██║██║╚██╗██║",
-                        "██║     ██║  ██║     ██║██║ ╚████║██║  ██╗ ██║██║██║ ╚████║",
-                        "╚═╝     ╚═╝  ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═╝╚═╝╚═╝  ╚═══╝",
-                        "",
-                    },
-                    shortcut = {
-                        {
-                            desc = "󰒲 Lazy",
-                            key = "l",
-                            action = "Lazy",
-                        },
-                        {
-                            desc = "󰒓 Config",
-                            key = "c",
-                            action = "edit $MYVIMRC",
-                        },
-                        {
-                            desc = "󰅚 Quit",
-                            key = "q",
-                            action = "qa",
-                        },
-                    },
-                    project = {
-                        action = function(path)
-                            vim.fn.chdir(path)
-                            vim.cmd("SessionManager load_current_dir_session")
-                        end,
-                    },
-                    footer = {},
+        opts = {
+            theme = "hyper",
+            hide = { statusline = false },
+            config = {
+                header = {
+                    "███████╗██████╗ ██╗  ██╗███╗   ██╗██╗  ██╗ ██╗██╗███╗   ██╗",
+                    "██╔════╝██╔══██╗██║  ██║████╗  ██║██║ ██╔╝███║██║████╗  ██║",
+                    "█████╗  ██████╔╝███████║██╔██╗ ██║█████╔╝ ╚██║██║██╔██╗ ██║",
+                    "██╔══╝  ██╔══██╗╚════██║██║╚██╗██║██╔═██╗  ██║██║██║╚██╗██║",
+                    "██║     ██║  ██║     ██║██║ ╚████║██║  ██╗ ██║██║██║ ╚████║",
+                    "╚═╝     ╚═╝  ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═╝╚═╝╚═╝  ╚═══╝",
+                    "",
                 },
-            }
-        end,
+                shortcut = {
+                    {
+                        desc = "󰒲 Lazy",
+                        key = "l",
+                        action = "Lazy",
+                    },
+                    {
+                        desc = "󰒓 Config",
+                        key = "c",
+                        action = "edit $MYVIMRC",
+                    },
+                    {
+                        desc = "󰅚 Quit",
+                        key = "q",
+                        action = "qa",
+                    },
+                },
+                project = {
+                    action = function(path)
+                        vim.fn.chdir(path)
+                        vim.cmd("SessionManager load_current_dir_session")
+                    end,
+                },
+                footer = {},
+            },
+        },
         dependencies = {
             "nvim-tree/nvim-web-devicons",
             {
                 "Shatur/neovim-session-manager",
+                event = "VeryLazy",
                 opts = {
                     autoload_mode = "Disabled",
                 },

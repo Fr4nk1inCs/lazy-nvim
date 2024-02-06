@@ -43,20 +43,6 @@ return {
             },
         },
     },
-    -- Delance
-    {
-        "ofseed/dance.nvim",
-        event = "VeryLazy",
-        opts = {
-            server = {
-                -- Run `npm i -g @delance/runtime` first
-                path = "/usr/lib/node_modules/@delance/",
-                entry = function(server_path)
-                    return vim.fs.joinpath(server_path, "runtime", "langserver.cjs")
-                end,
-            },
-        },
-    },
     {
         "linux-cultist/venv-selector.nvim",
         cmd = "VenvSelect",

@@ -1,6 +1,7 @@
 return {
     {
         "L3MON4D3/LuaSnip",
+        event = "VeryLazy",
         keys = {
             {
                 "<c-.>",
@@ -15,7 +16,7 @@ return {
                 desc = "Select previous choiceNode.",
             },
         },
-        init = function()
+        config = function()
             local types = require("luasnip.util.types")
             require("luasnip").config.setup({
                 update_events = "TextChanged,TextChangedI",

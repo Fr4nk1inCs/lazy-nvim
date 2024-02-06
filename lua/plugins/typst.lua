@@ -4,8 +4,7 @@ return {
         opts = {
             servers = {
                 typst_lsp = {
-                    root_dir = require("lspconfig.util").root_pattern("*.typ"),
-                    exportPdf = "onType",
+                    root_dir = nil,
                 },
             },
         },

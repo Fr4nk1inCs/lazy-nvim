@@ -1,6 +1,7 @@
 return {
     {
         "nvim-cmp",
+        event = "VeryLazy",
         opts = function()
             local cmp = require("cmp")
             local luasnip = require("luasnip")
