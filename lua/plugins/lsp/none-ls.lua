@@ -13,7 +13,6 @@ return {
                     nls.builtins.formatting.isort,
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.clang_format,
-                    nls.builtins.formatting.eslint,
                 },
             }
         end,
