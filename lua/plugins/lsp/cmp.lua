@@ -1,8 +1,18 @@
 return {
     {
         "nvim-cmp",
+        dependencies = {
+            "L3MON4D3/LuaSnip",
+            "zbirenbaum/copilot.lua",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "saadparwaiz1/cmp_luasnip",
+            "zbirenbaum/copilot-cmp",
+        },
         event = "VeryLazy",
-        opts = function()
+        config = function()
             local cmp = require("cmp")
             local luasnip = require("luasnip")
 
@@ -25,7 +35,7 @@ return {
                 end
             end
 
-            return {
+            cmp.setup({
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
@@ -53,6 +63,7 @@ return {
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                 },
+                ---@diagnostic disable-next-line: missing-fields
                 formatting = {
                     format = function(_, item)
                         local icons = require("lazyvim.config").icons.kinds
@@ -62,7 +73,29 @@ return {
                         return item
                     end,
                 },
-            }
+            })
+
+            -- `/` cmdline setup.
+            cmp.setup.cmdline("/", {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "buffer" },
+                },
+            })
+            -- `:` cmdline setup.
+            cmp.setup.cmdline(":", {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = "path" },
+                }, {
+                    {
+                        name = "cmdline",
+                        option = {
+                            ignore_cmds = { "Man", "!" },
+                        },
+                    },
+                }),
+            })
         end,
     },
 }
