@@ -13,6 +13,22 @@ return {
         "neovim/nvim-lspconfig",
         opts = {
             servers = {
+                pyright = {
+                    cmd = { "delance-langserver", "--stdio" },
+                    settings = {
+                        python = {
+                            analysis = {
+                                typeCheckingMode = "basic",
+                                inlayHints = {
+                                    callArgumentNames = "partial",
+                                    functionReturnTypes = true,
+                                    pytestParameters = true,
+                                    variableTypes = true,
+                                },
+                            },
+                        },
+                    },
+                },
                 ruff_lsp = {
                     keys = {
                         {

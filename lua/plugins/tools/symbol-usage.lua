@@ -58,6 +58,9 @@ return {
     {
         "Wansmer/symbol-usage.nvim",
         event = event,
-        opts = { text_format = text_format },
+        opts = {
+            vt_position = "end_of_line",
+            text_format = text_format,
+        },
     },
 }
