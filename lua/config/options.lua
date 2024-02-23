@@ -23,13 +23,14 @@ vim.opt.pumblend = 0
 if vim.fn.has("wsl") == 1 then
     vim.g.clipboard = {
         name = "WslClipboard",
+        -- Install Neovim on host (Windows) to use faster global clipboard
         copy = {
-            ["+"] = "/mnt/c/Windows/System32/clip.exe",
-            ["*"] = "/mnt/c/Windows/System32/clip.exe",
+            ["+"] = { "/mnt/c/Program Files/Neovim/bin/win32yank.exe", "-i", "--crlf" },
+            ["*"] = { "/mnt/c/Program Files/Neovim/bin/win32yank.exe", "-i", "--crlf" },
         },
         paste = {
-            ["+"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-            ["*"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ["+"] = { "/mnt/c/Program Files/Neovim/bin/win32yank.exe", "-o", "--lf" },
+            ["*"] = { "/mnt/c/Program Files/Neovim/bin/win32yank.exe", "-o", "--lf" },
         },
         cache_enabled = 0,
     }
