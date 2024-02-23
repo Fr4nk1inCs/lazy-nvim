@@ -52,8 +52,7 @@ if vim.g.neovide then
     -- vim.g.transparency = 0.8
     -- vim.g.neovide_background_color = alpha("#2e3440", 0.8)
 
-    -- Blur for floating windows
-    vim.o.pumblend = 70
+    vim.o.pumblend = 70 -- Blur for floating windows
     vim.g.neovide_floating_blur_amount_x = 7.0
     vim.g.neovide_floating_blur_amount_y = 7.0
     vim.g.neovide_floating_shadow = true
@@ -61,6 +60,8 @@ if vim.g.neovide then
     vim.g.neovide_light_angle_degrees = 45
     vim.g.neovide_light_radius = 5
     vim.g.neovide_scroll_animation_length = 0.3
+
+    vim.g.neovide_remember_window_size = true
 
     vim.api.nvim_set_hl(0, "TreesitterContextBottom", { bg = "#2e3440", underline = true })
     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#2e3440" })

@@ -23,6 +23,13 @@ if vim.g.neovide then
     vim.keymap.set("v", "<C-v>", '"+P') -- Paste visual mode
     vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
     vim.keymap.set("i", "<C-v>", '<ESC>"+pa') -- Paste insert mode
+
+    vim.keymap.set("n", "<F12>", function()
+        local fullscreen = vim.g.neovide_fullscreen
+        vim.g.neovide_fullscreen = not fullscreen
+    end, {
+        desc = "Toggle fullscreen",
+    })
 end
 
 -- Delete unnecessary keymaps
