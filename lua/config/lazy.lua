@@ -42,7 +42,7 @@ require("lazy").setup({
         -- Github Copilot
         { import = "lazyvim.plugins.extras.coding.copilot" },
 
-        { import = "lazyvim.plugins.extras.editor.symbols-outline" },
+        { import = "lazyvim.plugins.extras.editor.outline" },
 
         -- vscode
         { import = "lazyvim.plugins.extras.vscode" },
