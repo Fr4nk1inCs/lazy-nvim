@@ -12,6 +12,7 @@ return {
                     nls.builtins.formatting.black,
                     nls.builtins.formatting.isort,
                     nls.builtins.formatting.shfmt,
+                    nls.builtins.formatting.alejandra,
                 },
             }
         end,

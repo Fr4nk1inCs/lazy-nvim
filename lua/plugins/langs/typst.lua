@@ -1,9 +1,19 @@
+local is_in_nixos = vim.fn.executable("nix") == 1
+
+local dependencies_bin = {}
+if is_in_nixos then
+    dependencies_bin = {
+        ["typst-preview"] = "typst-preview",
+        ["websocat"] = "websocat",
+    }
+end
+
 return {
     {
         "neovim/nvim-lspconfig",
         opts = {
             servers = {
-                typst_lsp = {
+                tinymist = {
                     root_dir = nil,
                 },
             },
@@ -22,6 +32,7 @@ return {
             require("typst-preview").update()
         end,
         opts = {
+            dependencies_bin = dependencies_bin,
             get_root = function(_)
                 return vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
             end,

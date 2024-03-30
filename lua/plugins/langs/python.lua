@@ -14,7 +14,6 @@ return {
         opts = {
             servers = {
                 pyright = {
-                    cmd = { "delance-langserver", "--stdio" },
                     settings = {
                         python = {
                             analysis = {
