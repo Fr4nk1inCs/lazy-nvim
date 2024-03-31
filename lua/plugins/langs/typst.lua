@@ -14,7 +14,8 @@ return {
         opts = {
             servers = {
                 tinymist = {
-                    root_dir = nil,
+                    root_dir = require("lspconfig.util").root_pattern("*.typ"),
+                    single_file_support = true,
                 },
             },
         },
