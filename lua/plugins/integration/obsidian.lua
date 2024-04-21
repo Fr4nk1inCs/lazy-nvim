@@ -1,7 +1,20 @@
-local vaults = {
-    notes = "~/obsidian/notes",
-}
-local default_vault = "notes"
+local vaults = {}
+local system
+if vim.fn.has("win32") == 1 then -- Windows
+    system = "Windows"
+    vaults["master-kb"] = "C:\\Users\\fushen\\OneDrive - USTC\\master-kb"
+elseif vim.fn.has("mac") == 1 then
+    system = "macOS"
+    vaults["master-kb"] = "~/Library/CloudStorage/OneDrive - USTC/master-kb"
+elseif vim.fn.has("wsl") == 1 then
+    system = "WSL"
+    vaults["master-kb"] = "/mnt/c/Users/fushen/OneDrive - USTC/master-kb"
+else
+    system = "Linux"
+    vaults["master-kb"] = "~/OneDrive-USTC/master-kb"
+end
+
+local default_vault = "master-kb"
 
 -- configurations for obsidian.nvim plugin
 local trigger_events = {}
@@ -48,5 +61,38 @@ return {
     },
     opts = {
         workspaces = workspaces,
+        ---@param title string|?
+        ---@return string
+        note_id_func = function(title)
+            if title ~= nil then
+                return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+            else
+                -- 4 random uppercase letters
+                title = ""
+                for _ = 1, 4 do
+                    title = title .. string.char(math.random(65, 90))
+                end
+                return title
+            end
+        end,
+        ---@param url string
+        follow_url_func = function(url)
+            -- Open the URL in the default web browser.
+            if system == "Windows" then
+                if url:find("?") then
+                    url = string.format('`"%s`"', url)
+                end
+                vim.fn.jobstart({ "explorer.exe", url }, { detach = true })
+            elseif system == "macOS" then
+                vim.fn.jobstart({ "open", url }, { detach = true })
+            elseif system == "Linux" then
+                vim.fn.jobstart({ "xdg-open", url }, { detach = true })
+            elseif system == "WSL" then
+                vim.fn.jobstart(
+                    { "/mnt/c/Windows/System32/rundll32.exe", "url.dll,FileProtocolHandler", url },
+                    { detach = true }
+                )
+            end
+        end,
     },
 }
