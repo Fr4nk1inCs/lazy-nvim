@@ -1,6 +1,7 @@
 local save_path = "~/Pictures/Codesnap"
+
 if vim.fn.has("wsl") then
-    save_path = "/mnt/c/Users/fushen/Pictures/CodeSnap"
+    save_path = "/mnt/c/Users/msfus/Pictures/CodeSnap"
 end
 
 if vim.fn.isdirectory(save_path) == 0 then

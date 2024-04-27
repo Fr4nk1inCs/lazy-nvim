@@ -2,13 +2,13 @@ local vaults = {}
 local system
 if vim.fn.has("win32") == 1 then -- Windows
     system = "Windows"
-    vaults["master-kb"] = "C:\\Users\\fushen\\OneDrive - USTC\\master-kb"
+    vaults["master-kb"] = "C:\\Users\\msfus\\OneDrive - USTC\\master-kb"
 elseif vim.fn.has("mac") == 1 then
     system = "macOS"
     vaults["master-kb"] = "~/Library/CloudStorage/OneDrive - USTC/master-kb"
 elseif vim.fn.has("wsl") == 1 then
     system = "WSL"
-    vaults["master-kb"] = "/mnt/c/Users/fushen/OneDrive - USTC/master-kb"
+    vaults["master-kb"] = "/mnt/c/Users/msfus/OneDrive - USTC/master-kb"
 else
     system = "Linux"
     vaults["master-kb"] = "~/OneDrive-USTC/master-kb"
