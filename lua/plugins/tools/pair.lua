@@ -3,6 +3,11 @@ return {
         "altermo/ultimate-autopair.nvim",
         event = { "InsertEnter", "CmdlineEnter" },
         opts = {
+            extensions = {
+                filetype = {
+                    nft = { "tex", "latex" },
+                },
+            },
             tabout = {
                 enable = true,
                 map = "<tab>",
