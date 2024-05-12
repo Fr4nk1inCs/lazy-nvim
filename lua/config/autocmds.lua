@@ -2,14 +2,6 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-vim.api.nvim_create_autocmd("BufRead", {
-    group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
-    pattern = "Cargo.toml",
-    callback = function()
-        require("cmp").setup.buffer({ sources = { { name = "crates" } } })
-    end,
-})
-
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function()
@@ -18,6 +10,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         if mark[1] > 0 and mark[1] <= lcount then
             pcall(vim.api.nvim_win_set_cursor, 0, mark)
         end
+    end,
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = "*.tex",
+    callback = function()
+        vim.api.nvim_set_option_value("filetype", "tex", { buf = 0 })
+        vim.api.nvim_set_option_value("wrap", true, { scope = "local" })
     end,
 })
 

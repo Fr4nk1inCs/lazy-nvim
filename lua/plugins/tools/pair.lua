@@ -5,7 +5,7 @@ return {
         opts = {
             extensions = {
                 filetype = {
-                    nft = { "tex", "latex" },
+                    nft = { "tex", "plaintex", "latex" },
                 },
             },
             tabout = {
