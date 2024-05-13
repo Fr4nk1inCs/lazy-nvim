@@ -1,7 +1,6 @@
 local default_command, default_im_select
 
 if vim.fn.has("wsl") == 1 then
-    print(vim.fn.has("wsl"))
     local data_dir = vim.fn.stdpath("data")
     assert(type(data_dir) == "string" and data_dir ~= "", "Invalid data directory")
     local exe_dir = vim.fs.joinpath(data_dir, "im-select")
