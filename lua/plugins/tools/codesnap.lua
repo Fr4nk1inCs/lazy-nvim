@@ -1,4 +1,4 @@
-local save_path = "~/Pictures/Codesnap"
+local save_path = vim.fn.expand("~/Pictures/Codesnap")
 if vim.fn.has("wsl") == 1 then
     save_path = "/mnt/c/Users/fushen/Pictures/CodeSnap"
 end
