@@ -44,7 +44,6 @@ vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
 
 -- Neovide configurations
 if vim.g.neovide then
-    vim.o.guifont = "Maple Mono SC NF:h12"
     vim.g.neovide_transparency = 0.9
     -- Wait for neovide to support this
     -- local alpha = function(rgb, transparency)
