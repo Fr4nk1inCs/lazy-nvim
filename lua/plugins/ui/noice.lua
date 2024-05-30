@@ -1,9 +1,3 @@
-if vim.g.neovide then
-    WIN_BLEND = 70
-else
-    WIN_BLEND = 0
-end
-
 return {
     {
         "folke/noice.nvim",
@@ -27,33 +21,6 @@ return {
             presets = {
                 lsp_doc_border = true,
                 inc_rename = true,
-            },
-            views = {
-                popup = {
-                    win_options = {
-                        winblend = WIN_BLEND,
-                    },
-                },
-                notify = {
-                    win_options = {
-                        winblend = WIN_BLEND,
-                    },
-                },
-                cmdline_popup = {
-                    win_options = {
-                        winblend = WIN_BLEND,
-                    },
-                },
-                popupmenu = {
-                    win_options = {
-                        winblend = WIN_BLEND,
-                    },
-                },
-                mini = {
-                    win_options = {
-                        winblend = WIN_BLEND,
-                    },
-                },
             },
             markdown = {
                 hover = {

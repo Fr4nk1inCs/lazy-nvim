@@ -20,12 +20,3 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         vim.api.nvim_set_option_value("wrap", true, { scope = "local" })
     end,
 })
-
-if vim.g.neovide then
-    vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "lazyterm", "lazy", "mason" },
-        callback = function(opts)
-            vim.api.nvim_set_option_value("winblend", 70, { win = opts.winnr })
-        end,
-    })
-end
