@@ -11,6 +11,9 @@ return {
             ui = {
                 border = "rounded",
             },
+            github = {
+                download_url_template = "https://sciproxy.com/%s/releases/download/%s/%s",
+            },
         },
     },
 }
