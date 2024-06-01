@@ -72,7 +72,7 @@ return {
                     "env",
                     ".env",
                 },
-                anaconda_envs_path = vim.fn.expand("~/miniforge3/envs/"),
+                anaconda_envs_path = vim.fn.expand("/mamba/envs"),
             })
         end,
         keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
