@@ -12,7 +12,7 @@ return {
                 border = "rounded",
             },
             github = {
-                download_url_template = "https://sciproxy.com/%s/releases/download/%s/%s",
+                download_url_template = "https://sciproxy.com/https://github.com/%s/releases/download/%s/%s",
             },
         },
     },
