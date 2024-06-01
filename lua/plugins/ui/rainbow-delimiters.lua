@@ -15,8 +15,6 @@ return {
                 query = {
                     [""] = "rainbow-delimiters",
                     lua = "rainbow-blocks",
-                    latex = "rainbow-blocks",
-                    verilog = "rainbow-blocks",
                     query = "rainbow-blocks",
                 },
                 highlight = {
