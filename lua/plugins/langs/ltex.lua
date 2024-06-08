@@ -9,6 +9,7 @@ return {
     },
     {
         "jhofscheier/ltex-utils.nvim",
+        event = "VeryLazy",
         dependencies = {
             "nvim-cmp",
             "hrsh7th/cmp-nvim-lsp",
