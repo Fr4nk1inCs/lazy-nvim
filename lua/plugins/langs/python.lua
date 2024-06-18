@@ -13,7 +13,7 @@ return {
         "neovim/nvim-lspconfig",
         opts = {
             servers = {
-                pyright = {
+                basedpyright = {
                     settings = {
                         python = {
                             analysis = {
