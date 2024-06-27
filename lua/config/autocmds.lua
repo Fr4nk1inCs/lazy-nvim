@@ -13,14 +13,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = "*.tex",
-    callback = function()
-        vim.api.nvim_set_option_value("filetype", "tex", { buf = 0 })
-        vim.api.nvim_set_option_value("wrap", true, { scope = "local" })
-    end,
-})
-
 if vim.g.neovide then
     vim.api.nvim_create_autocmd("FileType", {
         pattern = { "lazyterm", "lazy", "mason" },
