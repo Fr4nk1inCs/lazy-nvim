@@ -15,7 +15,7 @@ return {
             save_path = save_path,
             has_breadcrumbs = true,
             bg_theme = "sea",
-            code_font_family = "Maple Mono SC NF",
+            code_font_family = "Maple Mono NF CN",
         },
     },
 }
