@@ -22,12 +22,13 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.lang.yaml" },
         { import = "lazyvim.plugins.extras.lang.go" },
         { import = "lazyvim.plugins.extras.lang.astro" },
+        { import = "lazyvim.plugins.extras.lang.tailwind" },
 
         { import = "lazyvim.plugins.extras.dap.core" },
 
         { import = "lazyvim.plugins.extras.test.core" },
 
-        -- { import = "lazyvim.plugins.extras.formatting.prettier" },
+        { import = "lazyvim.plugins.extras.formatting.prettier" },
         { import = "lazyvim.plugins.extras.formatting.black" },
 
         { import = "lazyvim.plugins.extras.linting.eslint" },
