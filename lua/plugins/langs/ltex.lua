@@ -1,34 +1,11 @@
 return {
-    {
-        "neovim/nvim-lspconfig",
-        opts = {
-            servers = {
-                ltex = {},
-            },
-        },
-    },
-    {
-        "jhofscheier/ltex-utils.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-cmp",
-            "hrsh7th/cmp-nvim-lsp",
-            "neovim/nvim-lspconfig",
-            "nvim-telescope/telescope.nvim",
-        },
-        config = function()
-            require("ltex-utils").setup()
-            require("lspconfig").ltex.setup({
-                capabilities = require("cmp_nvim_lsp").default_capabilities(),
-                on_attach = function(client, bufnr)
-                    require("ltex-utils").on_attach(bufnr)
-                end,
-                settings = {
-                    ltex = {
-                        completionEnabled = true,
-                    },
-                },
-            })
-        end,
+    "barreiroleo/ltex_extra.nvim",
+    ft = { "markdown", "tex" },
+    dependencies = { "neovim/nvim-lspconfig" },
+    -- yes, you can use the opts field, just I'm showing the setup explicitly
+    opts = {
+        load_langs = { "en-US", "zh-CN" },
+        path = vim.fn.stdpath("data") .. "/ltex",
+        server_opts = {},
     },
 }
