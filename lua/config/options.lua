@@ -20,6 +20,8 @@ vim.opt.fileencodings = { "ucs-bom", "utf-8", "GB18030", "gbk" }
 vim.opt.laststatus = 3
 vim.opt.pumblend = 0
 
+vim.o.exrc = true
+
 if vim.fn.has("wsl") == 1 then
     vim.g.clipboard = {
         name = "WslClipboard",
