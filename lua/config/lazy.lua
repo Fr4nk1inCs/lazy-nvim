@@ -45,6 +45,7 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.coding.copilot" },
 
         { import = "lazyvim.plugins.extras.editor.outline" },
+        { import = "lazyvim.plugins.extras.editor.fzf" },
 
         -- vscode
         { import = "lazyvim.plugins.extras.vscode" },

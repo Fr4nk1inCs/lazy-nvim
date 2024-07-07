@@ -44,6 +44,9 @@ vim.diagnostic.config({
 
 vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
 
+-- LazyVim configurations
+vim.g.lazyvim_picker = "fzf"
+
 -- Neovide configurations
 if vim.g.neovide then
     vim.g.neovide_transparency = 0.9

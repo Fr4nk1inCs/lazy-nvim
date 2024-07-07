@@ -135,7 +135,7 @@ return {
                 local recent_projects = project_nvim.get_recent_projects()
 
                 local function open_project_cmd(dir)
-                    return ":cd " .. dir .. " <CR>:Telescope find_files<CR>"
+                    return ":cd " .. dir .. " <CR>:FzfLua find_files<CR>"
                 end
 
                 local projects = {}
@@ -230,7 +230,7 @@ return {
                         end,
                         opts = { shrink_margin = false },
                     },
-                    dashboard.button("r", "󰝒  More Recent Files", "<cmd>Telescope oldfiles<CR>"),
+                    dashboard.button("r", "󰝒  More Recent Files", "<cmd>FzfLua oldfiles<CR>"),
                     {
                         type = "text",
                         val = "├────────────────── Recent projects ─────────────────┤",
@@ -247,7 +247,7 @@ return {
                         end,
                         opts = { shrink_margin = false },
                     },
-                    dashboard.button("p", "  More Recent Projects", ":Telescope projects <CR>"),
+                    dashboard.button("p", "  More Recent Projects", ":FzfLua projects <CR>"),
                 },
                 position = "center",
             }

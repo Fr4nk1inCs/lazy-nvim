@@ -40,9 +40,8 @@ vim.api.nvim_create_user_command("Obsidian", function(opts)
     end
     vim.notify("Opening vault " .. name .. " at " .. path, vim.log.levels.INFO)
     vim.fn.chdir(path)
-    require("telescope.builtin").oldfiles({
+    require("fzf-lua").oldfiles({
         cwd = path,
-        cwd_only = true,
     })
 end, {
     nargs = "?",
@@ -59,7 +58,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
-        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
         "nvim-treesitter/nvim-treesitter",
     },
     opts = {
