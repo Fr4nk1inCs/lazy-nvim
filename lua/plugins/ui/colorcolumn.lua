@@ -18,6 +18,7 @@ return {
                 "Trouble",
                 "fish",
                 "zsh",
+                "leetcode.nvim",
             },
         },
     },
