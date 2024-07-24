@@ -63,6 +63,7 @@ return {
     },
     opts = {
         workspaces = workspaces,
+        ui = { enable = false },
         ---@param title string|?
         ---@return string
         note_id_func = function(title)
